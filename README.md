@@ -1,2 +1,2 @@
-# adventOfCode
-Advent of Code archive
+# Advent of Code
+Advent of Code solutions archive
