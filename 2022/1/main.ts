@@ -7,4 +7,9 @@ const elfLists = elfStringLists.map(elfList => elfList.map(elfListEntry => Numbe
 const unsortedElfTotals = elfLists.map(elfList => elfList.reduce((prev, curr) => prev + curr))
 const elfTotals = Array.from(unsortedElfTotals.values()).sort((prev, curr) => curr - prev)
 const biggestElfTotal = elfTotals[0]
-console.log(biggestElfTotal)
+// console.log(biggestElfTotal)
+
+//second part
+const topThree = elfTotals.slice(0, 3)
+const topThreeTotal = topThree.reduce((prev, curr) => prev + curr)
+console.log(topThreeTotal)
