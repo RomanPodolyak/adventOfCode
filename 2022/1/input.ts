@@ -1,4 +1,4 @@
-export const list = `11334
+const list = `11334
 6264
 9318
 
@@ -2263,3 +2263,5 @@ export const list = `11334
 8942
 6865
 1691`
+
+export default list
