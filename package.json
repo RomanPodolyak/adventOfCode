@@ -1,0 +1,16 @@
+{
+  "name": "advent-of-code",
+  "version": "1.0.0",
+  "description": "Advent of Code personal solutions",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/RomanPodolyak/adventOfCode.git"
+  },
+  "author": "Román Podolyak",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/RomanPodolyak/adventOfCode/issues"
+  },
+  "homepage": "https://github.com/RomanPodolyak/adventOfCode#readme",
+}
