@@ -1,4 +1,4 @@
-const list = `11334
+const input = `11334
 6264
 9318
 
@@ -2264,4 +2264,4 @@ const list = `11334
 6865
 1691`
 
-export default list
+export default input
