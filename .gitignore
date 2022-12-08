@@ -1,2 +1,5 @@
 # Build folder
-out
+/out
+
+# Node modules
+/node_modules
