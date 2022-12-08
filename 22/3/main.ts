@@ -48,5 +48,34 @@ const sameItemsValues = sameItems.map(item => getValue(item[0]))
 
 // get total value
 const totalValue = sameItemsValues.reduce((prev, curr) => prev + curr)
-
 console.log(totalValue)
+
+// -------------------------------------
+
+// second part
+type Group = Bag[]
+
+// get unique items for each bag
+const filteredBags = bags.map(bag => Array.from(new Set(bag)))
+
+// group bags
+const groupSize = 3
+const groups: Group[] = []
+for (let i = 0; i < filteredBags.length; i += groupSize) {
+    const group: Bag[] = []
+
+    for (let j = 0; j < groupSize; j++) {
+        const bag = filteredBags[i + j]
+        group.push(bag)
+    }
+
+    groups.push(group)
+}
+
+// get badges and values
+const groupBadges = groups.map(group => getSameItemsFromLists(group)[0])
+const groupBadgeValues = groupBadges.map(badge => getValue(badge))
+
+// calculate total value
+const totalBadgeValue = groupBadgeValues.reduce((prev, curr) => prev + curr)
+console.log(totalBadgeValue)
