@@ -1,2 +1,4 @@
 # Advent of Code
-Advent of Code solutions archive
+A repository for my personal solutions for the Advent of Code puzzles.
+
+For more information see [Advent of Code](https://adventofcode.com).
