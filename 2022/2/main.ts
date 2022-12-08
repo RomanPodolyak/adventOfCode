@@ -62,4 +62,42 @@ for (const round of rounds) {
     results.push(totalValue)
 }
 const total = results.reduce((prev, curr) => prev + curr)
-console.log(total);
+// console.log(total);
+
+// second part
+// types
+type WantedResultCode = YourCode
+type TrueRound = [OpponentHandCode, WantedResultCode]
+
+const hands: Hand[] = ['rock', 'paper', 'sissors']
+
+// dicts
+const wantedResults: { [key in WantedResultCode]: Result } = {
+    X: 'loss',
+    Y: 'draw',
+    Z: 'win'
+}
+
+// functions
+function getHandFromResult(opponentHand: Hand, result: Result): Hand {
+    const opponentHandIndex = hands.indexOf(opponentHand)
+    const arrayDirection = result === 'win' ? 1 : (result === 'loss' ? -1 : 0)
+    const yourHandIndexRaw = opponentHandIndex + arrayDirection
+    const yourHandIndex = ((yourHandIndexRaw % hands.length) + hands.length) % hands.length
+    const yourHand = hands[yourHandIndex]
+    return yourHand
+}
+
+// calculation
+const trueResults: number[] = []
+for (const round of rounds as TrueRound[]) {
+    const [opponentHandCode, wantedResultCode] = round
+    const [opponentHand, wantedResult] = [opponentHands[opponentHandCode], wantedResults[wantedResultCode]]
+    const yourHand = getHandFromResult(opponentHand, wantedResult)
+    const resultValue = resultValues[wantedResult]
+    const handValue = handValues[yourHand]
+    const totalValue = resultValue + handValue
+    trueResults.push(totalValue)
+}
+const trueTotal = trueResults.reduce((prev, curr) => prev + curr)
+console.log(trueTotal)
