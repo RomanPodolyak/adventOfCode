@@ -61,7 +61,7 @@ for (const round of rounds) {
     const totalValue = resultValue + handValue
     results.push(totalValue)
 }
-const total = results.reduce((prev, curr) => prev + curr)
+// const total = results.reduce((prev, curr) => prev + curr)
 // console.log(total);
 
 // second part
