@@ -33,4 +33,6 @@ for measure in measures:
     l, w, h = measure
     total += getArea(l, w, h) + getMinSquareArea(l, w, h)
 
-print(total)
+
+if __name__ == "__main__":
+    print(total)
