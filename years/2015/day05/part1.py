@@ -24,23 +24,30 @@ def avoidsSpecificStrings(string: str):
     return True
 
 
-def isANiceString(string: str):
-    return (
-        hasAtLeast3Vowels(string)
-        and hasDoubleLetter(string)
-        and avoidsSpecificStrings(string)
-    )
+def isANiceString(string, functions):
+    for function in functions:
+        if function(string) == False:
+            return False
+    return True
 
 
-if __name__ == "__main__":
+def printInfo(strings, testFunctions):
     niceStrings = 0
     for string in strings:
-        if isANiceString(string):
+        if isANiceString(string, testFunctions):
             niceStrings += 1
 
     print(niceStrings)
 
     for string in strings:
-        print(
-            f"{string}\t{'x'if hasAtLeast3Vowels(string) else ' '}\t{'x' if hasDoubleLetter(string) else ' '}\t{'x' if avoidsSpecificStrings(string) else ' '}"
-        )
+        output = f"{string}\t"
+        for function in testFunctions:
+            output += f"{'x' if function(string) else ' '}\t"
+        print(output)
+
+    print(niceStrings)
+
+
+if __name__ == "__main__":
+    testFunctions = [hasAtLeast3Vowels, hasDoubleLetter, avoidsSpecificStrings]
+    printInfo(strings, testFunctions)
