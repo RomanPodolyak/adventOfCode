@@ -10,15 +10,21 @@ def hash(data: str) -> str:
     return digestHex
 
 
-attempt = 0
-while True:
-    toHash = secret + str(attempt)
-    hashed = hash(toHash)
-    checkStr = hashed[0:5]
-    if checkStr == "00000":
-        print(f"Found valid hash at attempt {attempt}")
-        break
-    attempt += 1
-    if attempt >= 10000000:
-        print("didn't find a valid hash after 10M attempts")
-        break
+def findValidHash(leadingZeroes: int):
+    attempt = 0
+    while True:
+        toHash = secret + str(attempt)
+        hashed = hash(toHash)
+        checkStr = hashed[0:leadingZeroes]
+        if checkStr == "0" * leadingZeroes:
+            print(f"Found valid hash at attempt {attempt}")
+            print(hashed)
+            break
+        attempt += 1
+        if attempt >= 10000000:
+            print("didn't find a valid hash after 10M attempts")
+            break
+
+
+if __name__ == "__main__":
+    findValidHash(5)
